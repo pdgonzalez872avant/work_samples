@@ -1,0 +1,5 @@
+file_path1 = r"C:\Users\Paulo\PycharmProjects\Practice\Jobs_Winning\elance_parse_data\pandas_1.txt"
+file_path2 = r"C:\Users\Paulo\PycharmProjects\Practice\Jobs_Winning\elance_parse_data\pandas_2.txt"
+# file_path2 = r"C:\Users\Paulo\PycharmProjects\Practice\Jobs_Winning\elance_parse_data\test1"
+output_file1 = r"C:\Users\Paulo\PycharmProjects\Practice\Jobs_Winning\elance_parse_data\output_file1.csv"
+output_file2 = r"C:\Users\Paulo\PycharmProjects\Practice\Jobs_Winning\elance_parse_data\output_file2.csv"
