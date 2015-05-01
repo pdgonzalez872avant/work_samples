@@ -1,0 +1,72 @@
+    archive_fn = os.path.join(input_path, "my_arquive.zip")
+    zf = zipfile.ZipFile(archive_fn, "w")
+    file_names = glob.glob(os.path.join(input_path, "*")) # i think the issue is here.
+
+    for fn in file_names:
+
+        zf.write(fn, arcname=fn)
+
+
+    zipped_list = zf.namelist()
+    zf.close()
+    
+    return zf.namelist()
+
+
+Hi Paulo,
+
+I'm not sure what the root of the frustration is.  I'll take a shot, though.  
+If you're not doing so already, you might consider working these projects from the inside out.  By this, I mean trying to figure out what the core action is (the 'crux move' if you're into rock climbing) - it might be a line or two of code.  First make sure you understand that core action - writing a line of content into a zip file, say - and how the object - zipfile, say - works in this regard.  
+Build the **minimum** structure to test your understanding.
+
+Then, when it works, start building the infrastructure to support it.  
+Don't do it all at once - do it a line or two at a time and make 
+sure things still work as expected.  You might write ad hoc tests using the 
+keyword assert as you do, or include placeholder print() statements.
+
+Here is some (incomplete) code to demonstrate the core action:
+
+import os, zipfile, glob, tempfile, shutil
+
+#housekeeping - make a temp dir and load it with some files
+origdir=os.getcwd()
+tempdir=tempfile.mkdtemp()
+os.chdir(tempdir)
+os.mkdir('bogus')
+for f in ['a', 'b', 'c']:
+    open(f, 'w')
+zf = zipfile.ZipFile('myzip.zip', 'w')
+
+#load up the zip file with file names discovered
+for this_file in glob.glob('*'):
+    print(this_file)
+    base = os.path.basename(this_file)
+    if os.path.isfile(this_file):
+        print(os.path.basename(tempdir)+os.sep+base)
+        ### this is the core action
+        zf.write(this_file, arcname=os.path.basename(tempdir)+os.sep+base)
+        ###
+
+#close the zip file and print its contents
+zf.close()
+print(zf.namelist())
+
+#housekeeping
+os.chdir(origdir)
+shutil.rmtree(tempdir)
+
+You might see what you can do with this base.
+
+
+
+# You might have a look at this code:
+
+if __name__ == "__main__":
+    test_place = tempfile.mkdtemp()
+    for file in ["river", "trees", "tent"]:
+        f = open(os.path.join(test_place, file), 'w')
+        f.write("blah")
+        f.close()
+    # three test file written, now lets check that namelist()
+    observed = zipdirectory(test_place)  # assumes function returns .namelist from newly created zipfile
+    print(observed)  #  eyeball to make sure ["happyvalley/river", "happyvalley/tent", "happyvalley/trees"] in any order
