@@ -140,7 +140,6 @@ class DreamsForKids:
                              person_details[12], \
                              person_details[13]
 
-
     def main(self):
         """
         Puts everything together
@@ -149,15 +148,8 @@ class DreamsForKids:
         d = DreamsForKids()
         data_list = d.unpacks_data_csv()
 
-        example = ['5/6/2015 22:54:09', 'Paulo', 'Gonzalez',
-                   '2300 n commonwealth ave, apt 4a', 'Chicago', '60614',
-                   '7732450070', 'pdgonzalez872@gmail.com', 'Software Developer',
-                   'Yes', 'Dreams for Kids - volunteer',
-                   'Have volunteered at DFK in events and during fundraising. I was part of the team that won 25K for the adaptive waterski event.',
-                   'Would help organize, manage and execute strategies for events and also fundraising.',
-                   "I'm fortunate to have a lot. I may even have too much. Sometimes it is hard to reconcile my blessings with what other people have to go through in life. It is great to give back."]
-
-        d.create_pdf_application_associate_board(example)
+        for itm in data_list[1:]:  # Skips header
+            d.create_pdf_application_associate_board(itm)
 
         # for itm in data_list:
         # pass
