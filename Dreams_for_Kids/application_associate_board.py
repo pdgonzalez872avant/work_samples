@@ -79,8 +79,7 @@ class DreamsForKids:
         print(list_of_lists)
         return list_of_lists
 
-
-    def create_pdf_application_associate_board(self, person_details):
+    def create_pdf_application_associate_board_reportlab(self, person_details):
         """
         Takes in csv file and creates pdfs for each row
 
@@ -169,6 +168,18 @@ class DreamsForKids:
         # Finishes building report
         doc.build(story)
 
+    def create_pdf_application_associate_board_html(self, person_details):
+        """
+        Creates a better looking pdf
+
+        Will look into this later, if possible
+
+        Resources:
+        - http://pbpython.com/pdf-reports.html
+        - Virtualenv - http://flask.pocoo.org/docs/0.10/installation/
+        """
+        pass
+
     def unpacks_data_individual(self, person_details):
         """
         Lots of unpacking if needed
@@ -198,17 +209,20 @@ class DreamsForKids:
         Puts everything together
         """
         d = DreamsForKids()
-        data_list_csv = d.unpacks_data_csv()
+        # data_list_csv = d.unpacks_data_csv()
 
-        data_list_gs = d.unpacks_data_google_sheets()
+        d.create_pdf_application_associate_board_html("test")
 
         # # Creates the pdfs - ok
         # for itm in data_list_csv[1:]:  # Skips header
-        #     d.create_pdf_application_associate_board(itm)
+        #     d.create_pdf_application_associate_board_reportlab(itm)
 
-        # # Creates the pdfs - ok
+        # # Google Sheets data
+        # data_list_gs = d.unpacks_data_google_sheets()
+
+        # # Creates the pdfs via Google Sheets - ok
         # for itm in data_list_gs[1:]:  # Skips header
-        #     d.create_pdf_application_associate_board(itm)
+        #     d.create_pdf_application_associate_board_reportlab(itm)
 
 if __name__ == "__main__":
     d = DreamsForKids()
