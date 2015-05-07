@@ -1,6 +1,15 @@
+import os
+from Dreams_for_Kids import config as c
+
+
 class DreamsForKids:
     """
     Class for Dreams for Kids volunteer work
+
+    This class is the toolbox for my work with Dreams for Kids. I will try to add
+    anything that is pertinent for any processes they have in store.
+
+    Can unpack data from csv and also google sheets by using "gspread" library
     """
 
     def __init__(self):
@@ -8,14 +17,18 @@ class DreamsForKids:
         May load some variables later
         :return:
         """
-        self.file_storage_path = r"C:\Users\Paulo\PycharmProjects\work_samples\Dreams_for_Kids\applications_associate_board"
-        self.file_path = r"C:\Users\Paulo\PycharmProjects\work_samples\Dreams_for_Kids"
+        self.file_storage_path = c.file_storage_path
+        self.file_path = c.file_path
+        self.gs_sheet_add = c.gs_sheet_add
+        self.gs_key = c.gs_key
+
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "{}\{}".format(self.file_path,
+                                                                      "DreamsForKids-0661d09ef1fc.json")
 
     def unpacks_data_csv(self):
         """
         Takes data from a csv file and returns a list
         """
-
         import csv
 
         with open("{}\{}".format(self.file_path,
@@ -25,6 +38,47 @@ class DreamsForKids:
             all_data = [line for line in reader]
 
         return all_data
+
+    def unpacks_data_google_sheets(self):
+        """
+        Deals with Google sheets instead of csv
+
+        Resources:
+        - http://gspread.readthedocs.org/en/latest/oauth2.html
+        - https://github.com/burnash/gspread/issues/224
+        - http://stackoverflow.com/questions/5971312/how-to-set-environment-variables-in-python
+        - Set environment variables on windows: https://docs.python.org/3.4/using/windows.html
+        - http://www.indjango.com/access-google-sheets-in-python-using-gspread/
+        """
+
+        import json
+        import gspread
+        from oauth2client.client import GoogleCredentials
+        from oauth2client.client import OAuth2Credentials
+
+        # The environment variable GOOGLE_APPLICATION_CREDENTIALS has to be set
+        # This is done in the __init__ method
+        credentials = GoogleCredentials.get_application_default()  # works
+
+        scope = ['https://spreadsheets.google.com/feeds']
+
+        credentials = credentials.create_scoped(scope)  # ok
+        gs = gspread.authorize(credentials)  # ok
+
+        # # By key
+        # gs.open_by_key("1H6jSfg7haOUmfqRLM43K5usSqpGRWyBKHKHWHYxi-Cg")
+        # # By Name
+        # worksheet = gs.open('test').sheet1
+        # By url
+        sh = gs.open_by_url(self.gs_sheet_add)
+
+        worksheet = sh.get_worksheet(0)
+
+        list_of_lists = worksheet.get_all_values()
+
+        print(list_of_lists)
+        return list_of_lists
+
 
     def create_pdf_application_associate_board(self, person_details):
         """
@@ -67,7 +121,6 @@ class DreamsForKids:
 
         # Combines data
         zipped = zip(application_headers, person_details)
-
 
         # Unpacks to save
         first_name, last_name = person_details[1], person_details[2]
@@ -143,19 +196,21 @@ class DreamsForKids:
     def main(self):
         """
         Puts everything together
-        :return:
         """
         d = DreamsForKids()
-        data_list = d.unpacks_data_csv()
+        data_list_csv = d.unpacks_data_csv()
 
-        for itm in data_list[1:]:  # Skips header
-            d.create_pdf_application_associate_board(itm)
+        data_list_gs = d.unpacks_data_google_sheets()
 
-        # for itm in data_list:
-        # pass
-        #     # d.create_pdf_application_associate_board("test")
+        # # Creates the pdfs - ok
+        # for itm in data_list_csv[1:]:  # Skips header
+        #     d.create_pdf_application_associate_board(itm)
 
+        # # Creates the pdfs - ok
+        # for itm in data_list_gs[1:]:  # Skips header
+        #     d.create_pdf_application_associate_board(itm)
 
 if __name__ == "__main__":
     d = DreamsForKids()
     d.main()
+    # print(help(DreamsForKids))
