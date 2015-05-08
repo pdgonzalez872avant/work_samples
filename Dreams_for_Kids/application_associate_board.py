@@ -178,6 +178,7 @@ class DreamsForKids:
         - http://pbpython.com/pdf-reports.html
         - Virtualenv - http://flask.pocoo.org/docs/0.10/installation/
         """
+        import pandas
         pass
 
     def unpacks_data_individual(self, person_details):
@@ -211,8 +212,6 @@ class DreamsForKids:
         d = DreamsForKids()
         # data_list_csv = d.unpacks_data_csv()
 
-        d.create_pdf_application_associate_board_html("test")
-
         # # Creates the pdfs - ok
         # for itm in data_list_csv[1:]:  # Skips header
         #     d.create_pdf_application_associate_board_reportlab(itm)
@@ -223,6 +222,9 @@ class DreamsForKids:
         # # Creates the pdfs via Google Sheets - ok
         # for itm in data_list_gs[1:]:  # Skips header
         #     d.create_pdf_application_associate_board_reportlab(itm)
+
+        # # Testing for concurrency
+        # d.create_pdf_application_associate_board_html("hi")
 
 if __name__ == "__main__":
     d = DreamsForKids()
