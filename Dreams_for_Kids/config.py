@@ -1,0 +1,8 @@
+file_storage_path = r"C:\Users\Paulo\PycharmProjects\work_samples\Dreams_for_Kids\applications_associate_board"
+file_path = r"C:\Users\Paulo\PycharmProjects\work_samples\Dreams_for_Kids"
+gs_sheet_add = "https://docs.google.com/spreadsheets/d/1Q0BUOIUx7akKG5vjYlZR3wKzogmh5u_S7cSWsB1RMh8/edit?usp=sharing"
+gs_key = "1Q0BUOIUx7akKG5vjYlZR3wKzogmh5u_S7cSWsB1RMh8"
+sender = "pdgonzalez872"
+gmail_password = "ovelha12"
+# recipient_list = "pdgonzalez872@gmail.com"
+recipient_list = "pdgonzalez872@gmail.com; dfkassociateboard@dreamsforkids.org; klaird115@gmail.com"

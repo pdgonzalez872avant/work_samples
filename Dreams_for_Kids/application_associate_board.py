@@ -272,14 +272,14 @@ class DreamsForKids:
         data_list_gs = d.unpacks_data_google_sheets()
 
         responses = len(data_list_gs) - 1
-        # print(len(data_list_gs))
+        print(len(data_list_gs))
 
-        d.email_response_update(recipient_list=self.recipient_list,
-                                responses=responses)
+        # d.email_response_update(recipient_list=self.recipient_list,
+        #                         responses=responses)
 
-        # # Creates the pdfs via Google Sheets - ok
-        # for itm in data_list_gs[1:]:  # Skips header
-        #     d.create_pdf_application_associate_board_reportlab(itm)
+        # Creates the pdfs via Google Sheets - ok
+        for itm in data_list_gs[1:]:  # Skips header
+            d.create_pdf_application_associate_board_reportlab(itm)
 
         # # Testing for concurrency
         # d.create_pdf_application_associate_board_html("hi")
