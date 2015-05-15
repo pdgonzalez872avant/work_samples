@@ -17,16 +17,16 @@ class DreamsForKids:
         May load some variables later
         :return:
         """
-        self.file_storage_path = c.file_storage_path
-        self.file_path = c.file_path
+        self.file_storage_path = "{}/{}/".format(os.getcwd(), "applications_associate_board")
+        self.file_path = os.getcwd()
         self.gs_sheet_add = c.gs_sheet_add
         self.gs_key = c.gs_key
         self.sender = c.sender
         self.gmail_password = c.gmail_password
         self.recipient_list = c.recipient_list
 
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "{}\{}".format(self.file_path,
-                                                                      "DreamsForKids-0661d09ef1fc.json")
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "{}/{}".format(self.file_path,
+                                                                      "DreamsForKids.json")
 
     def unpacks_data_csv(self):
         """
@@ -127,9 +127,9 @@ class DreamsForKids:
 
         # Unpacks to save
         first_name, last_name = person_details[1], person_details[2]
-        storage_path = "{}\{}{}.pdf".format(self.file_storage_path,
-                                            first_name,
-                                            last_name)
+        storage_path = "{}{}{}.pdf".format(self.file_storage_path, first_name, last_name)
+
+        # print(storage_path)
 
         # Creates report
         doc = SimpleDocTemplate(storage_path, pagesize=letter,
@@ -272,7 +272,7 @@ class DreamsForKids:
         data_list_gs = d.unpacks_data_google_sheets()
 
         responses = len(data_list_gs) - 1
-        print(len(data_list_gs))
+        print(responses)
 
         # d.email_response_update(recipient_list=self.recipient_list,
         #                         responses=responses)
