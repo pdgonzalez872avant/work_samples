@@ -274,8 +274,10 @@ class DreamsForKids:
         responses = len(data_list_gs) - 1
         print(responses)
 
-        # d.email_response_update(recipient_list=self.recipient_list,
-        #                         responses=responses)
+        # # Emails people
+        # for person in self.recipient_list:
+        #     d.email_response_update(person, responses=responses)
+
 
         # Creates the pdfs via Google Sheets - ok
         for itm in data_list_gs[1:]:  # Skips header
