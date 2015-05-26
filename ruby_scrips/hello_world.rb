@@ -110,6 +110,19 @@ puts "#{categories.to_s} are the categories"
 
 
 
+t = """
+This is a longer string
+
+Let's see what happens if I print this to the screen
+"""
+
+puts t
+
+list = ["this", "is", "a", "list"]
+puts list[1]
+
+list.each {|x| puts x}
+
 # # Conditionals
 # if <code> end
 
