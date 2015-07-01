@@ -1,0 +1,21 @@
+SCHEDULED OUTAGES (OUTAGE REQUEST RECEIVED BY PJM DISPATCHING PERSONNEL)                    OPEN/CLOSED---| (. . . . outage type . . . )
+ITEM TICKET ZONE/CO  FACILITY_NAME                                     START_DATE TIME    END_DATE  TIME  | (. . . . c a u s e s . . . )
++---+------+--------+------------------------------------------------+-----------------+-----------------+-+---------+-----------------+
+   1 440029 AEP      CAP  DUMONT2  765 KV  DUMONT2  RXBG     REACTOR  15-APR-2011 2110  31-DEC-2015 1600  O  Active   12/16/2014 10:06 |
+            AEP      CAP  DUMONT2  765 KV  DUMONT2  RXBH     REACTOR  15-APR-2011 2110  31-DEC-2015 1600  O (Continuous                )
+            AEP      CAP  DUMONT2  765 KV  DUMONT2  RXBI     REACTOR  15-APR-2011 2110  31-DEC-2015 1600  O (Add SF-6 Gas                                      )
++---+------+--------+------------------------------------------------+-----------------+-----------------+-+---------+-----------------+
+   2 495746 FE       BRKR EVERGFE  138 KV  EVERGFE  WCI_B20      CB   24-OCT-2012 0800  20-DEC-2015 1600  O  Active   12/29/2014 09:42 |
+            FE       BRKR EVERGFE  138 KV  EVERGFE  WCI_B21      CB   24-OCT-2012 0800  20-DEC-2015 1600  O (Continuous                )
+            FE       BRKR WCIHOTST 138 KV  WCIHOTST A12          DIS  24-OCT-2012 0800  20-DEC-2015 1600  C (Other                                             )
++---+------+--------+------------------------------------------------+-----------------+-----------------+-+---------+-----------------+
+   3 500839 FE       BRKR 02GARFLD 138 KV  02GARFLD SWR232       CB   12-DEC-2012 0800  27-JAN-2017 1600  O  Active   01/29/2015 19:06 |
+            FE       BRKR 02GARFLD 138 KV  02GARFLD SWR132       CB   12-DEC-2012 0800  27-JAN-2017 1600  C (Continuous                )
+                                                                                                            (Other                                             )
++---+------+--------+------------------------------------------------+-----------------+-----------------+-+---------+-----------------+
+5836 587807 DOM-N    XFMR CHANCELR 500 KV  CHANCELR 4        XFORMER  04-SEP-2022 0930  02-JUN-2023 1600  O  Received 01/28/2015 15:44 |
+            DOM-N    BRKR CHANCELR 115 KV  CHANCELR L492         CB   04-SEP-2022 0930  02-JUN-2023 1600  O (Continuous                )
+            DOM-N    BRKR CHANCELR 500 KV  CHANCELR 58192        CB   04-SEP-2022 0930  02-JUN-2023 1600  O (New Construction                                  )
+            DOM-N    BRKR CHANCELR 500 KV  CHANCELR H4T581       CB   04-SEP-2022 0930  02-JUN-2023 1600  O (Cut-in                                            )
+            DOM-N    LINE CHANCELR 500 KV  CHANCELR-LADYSMTH 581      04-SEP-2022 0930  02-JUN-2023 1600  O                            |
++---+------+--------+------------------------------------------------+-----------------+-----------------+-+---------+-----------------+
