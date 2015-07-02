@@ -106,7 +106,11 @@ class DreamsForKids
       next if a[1] == "First Name" # skips the header
       d = DreamsForKids.new
       d.fetch_html_template # ok
+
+      next if File.exist?(@filename_html.to_s)
       d.create_applicant_html(a) # ok
+
+      next if File.exist?(@filename_pdf.to_s)
       d.create_pdf_from_html
     }
 
