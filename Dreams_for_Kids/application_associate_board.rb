@@ -107,12 +107,19 @@ class DreamsForKids
       d = DreamsForKids.new
       d.fetch_html_template # ok
 
-      next if File.exist?(@filename_html.to_s)
-      d.create_applicant_html(a) # ok
+      # Only creates html if file doesn't exist
+      if File.exist?(@filename_html.to_s)
+        next
+      else
+        d.create_applicant_html(a) # ok
+      end
 
-      next if File.exist?(@filename_pdf.to_s)
-      d.create_pdf_from_html
-    }
+      # Only creates pdf if file doesn't exist
+      if File.exist?(@filename_pdf.to_s)
+        next
+      else
+        d.create_pdf_from_html
+      end
 
   end
 
