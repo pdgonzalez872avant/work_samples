@@ -41,6 +41,11 @@ class DreamsForKids
 
   end
 
+  def number_of_applicants(input_array)
+    total_applicants = input_array.length - 1
+    puts total_applicants
+  end
+
   def fetch_html_template()
     File.open("member_application_template.html") { |f|
       @html_template = f.read
@@ -110,4 +115,10 @@ class DreamsForKids
 end
 
 new_class = DreamsForKids.new
+
+# Use main() to generate the pdfs
 new_class.main()
+
+# # Use this to fetch number of comments
+# new_array = new_class.fetch_form_data_google_drive # creates array object with data from sheets
+# new_class.number_of_applicants(new_array) # puts to screen method
