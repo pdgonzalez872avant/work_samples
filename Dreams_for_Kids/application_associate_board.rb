@@ -121,6 +121,8 @@ class DreamsForKids
         d.create_pdf_from_html
       end
 
+    }
+
   end
 
 end
