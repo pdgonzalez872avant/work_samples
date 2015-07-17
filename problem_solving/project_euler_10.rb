@@ -17,18 +17,18 @@ def is_this_prime(input_number)
   sum_of_primes = []
   square_root = input_number ** 0.5
 
-  (2..square_root).each { |i|
+  (2..input_number).each { |i|
     if input_number % i == 0
-      puts "Not Prime!  #{i}"
-
+      # puts "Not Prime!  #{i}"
+      next
     else
-      sum_of_primes << input_number
+      sum_of_primes << i
     end
     # puts "Yeah! #{num} , #{i}"
   }
 
-  puts sum_of_primes
+  return "#{sum_of_primes}, #{input_number}"
 
 end
 
-is_this_prime(25)
+p is_this_prime(10)
