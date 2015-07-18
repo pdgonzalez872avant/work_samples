@@ -12,7 +12,6 @@ Find the sum of all the primes below two million.
 # it, you just need to test up to its square root
 
 
-
 def is_this_prime(input_number)
 
   # Initiates variables
@@ -24,6 +23,7 @@ def is_this_prime(input_number)
 
   # A prime number doesn't have to be divided by all numbers before it. It can be divided up to the square
   # root of said number. In this case, I add 1 to account for negative.
+  # This was optimized by only using odd numbers.
   (3..ceiling).step(2).each { |i|
 
     # returns as soon as the number is divisible.
