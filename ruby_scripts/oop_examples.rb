@@ -56,7 +56,7 @@ class Frame
     @display = "---------------------------------------------------------\n" \
                "*** Frame *** \n" \
                "This is a #{@color} #{@manufacturer}, made of #{@composition}.\n" \
-               "Weight is #{@weight} with a stringing pattern of #{@string_pattern}.\n" \
+               "Weight is #{@weight_grams} with a stringing pattern of #{@string_pattern}.\n" \
                "Cost was $#{@cost}.\n"
     return @display
   end
