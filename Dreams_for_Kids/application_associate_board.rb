@@ -41,6 +41,14 @@ class DreamsForKids
 
   end
 
+<<<<<<< HEAD
+=======
+  def number_of_applicants(input_array)
+    total_applicants = input_array.length - 1
+    puts total_applicants
+  end
+
+>>>>>>> f7d267a578544b81084e47a6db472a30090f50d5
   def fetch_html_template()
     File.open("member_application_template.html") { |f|
       @html_template = f.read
@@ -101,8 +109,26 @@ class DreamsForKids
       next if a[1] == "First Name" # skips the header
       d = DreamsForKids.new
       d.fetch_html_template # ok
+<<<<<<< HEAD
       d.create_applicant_html(a) # ok
       d.create_pdf_from_html
+=======
+
+      # Only creates html if file doesn't exist
+      if File.exist?(@filename_html.to_s)
+        next
+      else
+        d.create_applicant_html(a) # ok
+      end
+
+      # Only creates pdf if file doesn't exist
+      if File.exist?(@filename_pdf.to_s)
+        next
+      else
+        d.create_pdf_from_html
+      end
+
+>>>>>>> f7d267a578544b81084e47a6db472a30090f50d5
     }
 
   end
@@ -110,4 +136,14 @@ class DreamsForKids
 end
 
 new_class = DreamsForKids.new
+<<<<<<< HEAD
 new_class.main()
+=======
+
+# Use main() to generate the pdfs
+new_class.main()
+
+# # Use this to fetch number of comments
+# new_array = new_class.fetch_form_data_google_drive # creates array object with data from sheets
+# new_class.number_of_applicants(new_array) # puts to screen method
+>>>>>>> f7d267a578544b81084e47a6db472a30090f50d5
