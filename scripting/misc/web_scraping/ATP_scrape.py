@@ -8,6 +8,7 @@ import datetime
 import config_ATP
 from datetime import date, timedelta
 
+# May/2015
 
 class FetchDataATP:
     """
@@ -236,4 +237,3 @@ if __name__ == "__main__":
     e.fetch_data_website()
     e.create_csv()
     e.replace_rubin_weird_name()
-

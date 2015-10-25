@@ -1,3 +1,19 @@
+I researched Data Analyst positions prior to getting serious about programming. Given my background in the financial industry, I was contacted by a recruiter about a position that sounded interesting.
+
+I am not sharing the position details nor the company's information, just the task that was asked of me and the solution I provided. It has been a while since I wrote this. My skill level has increased a lot since then. There are multiple ways of making this better, but this is what I turned in at the time.
+
+Below are the instructions for the task. You can find my solution in the Data_Analyst_Position.py and the relevant files under the files folder.
+
+Please contact me with any tips/techniques you think I would benefit from.
+
+Visit [pdgonzalez872.com](www.pdgonzalez872.com) for more information.
+
+Paulo
+
+
+
+
+================================================================================
 Paulo,
 
 Thank you for your interest in the Data Analyst position. Based on your background and experience, we would like to proceed with the next step in our hiring process. We have a project that you will need to successfully complete in order to proceed in the interview process for the Data Analyst role.
