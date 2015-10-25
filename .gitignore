@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 Python_OReilly_2/DatabaseHints/src/database.py
 Python_OReilly_2/EmailSearch/src/database.py
 Python_OReilly_2/HandlingDatabases/src/database.py
@@ -14,10 +12,8 @@ Dreams_for_Kids/DreamsForKids-0661d09ef1fc.json
 Dreams_for_Kids/DreamsForKids.json
 ruby_scripts/
 Dreams_for_Kids/DreamsForKids.json
-=======
 Dreams_for_Kids/applications_associate_board
 Dreams_for_Kids/config.py
 Dreams_for_Kids/DreamsForKids.json
 elance_parse_data/config.py
 shipment/shipment.json
->>>>>>> f7d267a578544b81084e47a6db472a30090f50d5
