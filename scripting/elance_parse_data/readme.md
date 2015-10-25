@@ -16,6 +16,6 @@ Traversing data is an extremely useful skill that I want to continue practicing.
 
 Please contact me with any tips/techniques you think I would benefit from.
 
-Visit [pdgonzalez872.com](pdgonzalez872.com) for more information.
+Visit [pdgonzalez872.com](www.pdgonzalez872.com) for more information.
 
 Paulo

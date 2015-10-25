@@ -41,18 +41,15 @@ class DreamsForKids
 
   end
 
-<<<<<<< HEAD
-=======
   def number_of_applicants(input_array)
     total_applicants = input_array.length - 1
     puts total_applicants
   end
 
->>>>>>> f7d267a578544b81084e47a6db472a30090f50d5
   def fetch_html_template()
-    File.open("member_application_template.html") { |f|
+    File.open("member_application_template.html") do |f|
       @html_template = f.read
-    }
+    end
   end
 
   def create_applicant_html(options)
@@ -105,14 +102,13 @@ class DreamsForKids
 
     # Loop to unpack data, create html and pdfs for each of the applicants
     # has to create new classes for each iteration, due to variables issues
-    google_data.each {|a|
+    google_data.each do |a|
       next if a[1] == "First Name" # skips the header
       d = DreamsForKids.new
       d.fetch_html_template # ok
-<<<<<<< HEAD
-      d.create_applicant_html(a) # ok
-      d.create_pdf_from_html
-=======
+
+      # d.create_applicant_html(a) # ok
+      # d.create_pdf_from_html
 
       # Only creates html if file doesn't exist
       if File.exist?(@filename_html.to_s)
@@ -128,17 +124,13 @@ class DreamsForKids
         d.create_pdf_from_html
       end
 
->>>>>>> f7d267a578544b81084e47a6db472a30090f50d5
-    }
+    end
 
   end
 
 end
 
 new_class = DreamsForKids.new
-<<<<<<< HEAD
-new_class.main()
-=======
 
 # Use main() to generate the pdfs
 new_class.main()
@@ -146,4 +138,3 @@ new_class.main()
 # # Use this to fetch number of comments
 # new_array = new_class.fetch_form_data_google_drive # creates array object with data from sheets
 # new_class.number_of_applicants(new_array) # puts to screen method
->>>>>>> f7d267a578544b81084e47a6db472a30090f50d5
