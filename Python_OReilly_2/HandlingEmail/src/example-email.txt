@@ -1,7 +1,0 @@
-From: pdgonzalez872@gmail.com
-To: pdgonzalez872@gmail.com
-Subject: Handling Emails with Python
-
-
-This email was sent using Python's smtplib!
-
