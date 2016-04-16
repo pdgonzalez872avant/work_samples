@@ -5,7 +5,6 @@ def rot13(input_string)
 
   translated_string = translate_string(split_string: split_string,
                                        rules: rules)
-  return translated_string
 end
 
 def hash_table
