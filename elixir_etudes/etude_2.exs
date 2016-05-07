@@ -34,4 +34,18 @@ Assertions.assertions(Geom.area(7, 3), 21)
 Assertions.assertions(Geom.area(12, 7), 84)
 Assertions.assertions(Geom.area, 1)
 
-IO.puts "all tests pass"
+IO.puts "all Geom tests pass"
+
+defmodule Test do
+  def sum(a \\ 3, b, c \\ 7) do
+    IO.puts "#{a} a"
+    IO.puts "#{b} b"
+    IO.puts "#{c} c"
+    IO.puts "---"
+    a + b + c
+  end
+end
+
+IO.puts Test.sum(11, 22, 33)
+IO.puts Test.sum(11, 22)
+IO.puts Test.sum(11) # Interesting. The argument goes to the first item that does not have a default when possible.
