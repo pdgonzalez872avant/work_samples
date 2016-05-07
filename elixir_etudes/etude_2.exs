@@ -12,21 +12,26 @@ defmodule Geom do
   end
 end
 
-unless Geom.area(3, 4) == 12 do
-  raise "failed 1"
+defmodule Assertions do
+  @moduledoc """
+  This is to scope assertions
+  """
+
+  @doc """
+  To make assertions easier
+  """
+
+  def assertions(func, result) do
+    unless func == result do
+      raise "failed: func result is #{func} and result is #{result}"
+    end
+  end
 end
 
-unless Geom.area(7, 3) == 21 do
-  raise "failed 2"
-end
-
-unless Geom.area(12, 7) == 84 do
-  raise "failed 3"
-end
-
-# tests defaults
-unless Geom.area == 1 do
-  raise "failed 4"
-end
+# tests
+Assertions.assertions(Geom.area(3, 4), 12)
+Assertions.assertions(Geom.area(7, 3), 21)
+Assertions.assertions(Geom.area(12, 7), 84)
+Assertions.assertions(Geom.area, 1)
 
 IO.puts "all tests pass"
