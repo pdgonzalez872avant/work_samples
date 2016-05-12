@@ -9,11 +9,8 @@ defmodule Problem_001 do
   end
 
   def main(range) do
-    Enum.reduce(range, 0, fn(e, acc) ->
-      if valid?(e) do
-        IO.puts(acc)
-      end
-    end)
+    valid_numbers = for n <- range, valid?(n), do: n
+    Enum.sum(valid_numbers)
   end
 end
 
@@ -28,12 +25,15 @@ end
 Test.assert(Problem_001.valid?(3), true)
 Test.assert(Problem_001.valid?(4), false)
 Test.assert(Problem_001.valid?(9), true)
-
+Test.assert(Problem_001.main(1..9), 23)
 
 #f = fn(x) -> ((rem(x, 3) == 0) || (rem(x, 5) == 0)) end
 #result = Enum.filter((1..9), f)
 #result = Enum.sum(result)
 #IO.inspect "#{result}"
+
+
+
 
 
 IO.puts "All tests pass"
