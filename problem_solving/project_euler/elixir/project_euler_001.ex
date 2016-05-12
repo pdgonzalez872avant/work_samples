@@ -12,14 +12,17 @@ defmodule Problem_001 do
     valid_numbers = for n <- range, valid?(n), do: n
     Enum.sum(valid_numbers)
   end
+
 end
 
 defmodule Test do
+
   def assert(func, value) do
     unless func == value do
       raise "there is a problem"
     end
   end
+
 end
 
 Test.assert(Problem_001.valid?(3), true)
