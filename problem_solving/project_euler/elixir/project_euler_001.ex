@@ -1,41 +1,19 @@
-
 defmodule Problem_001 do
 
-  use GenServer
-
-  def collect(range) do
-    23
-    #sum = []
-  #new_data = for data <- old_data do
-  #  data
-  #end
-
-  #Enum.reduce([1, 2, 3], 0, fn(x, acc) -> x + acc end)
-
-  end
-
-  def yeah(i, acc) do
-    if i < 3 do
-      {:cont, acc + i}
-    else
-      {:halt, acc}
-    end
-  end
-
-  def sum(x, acc) do
-    x + acc
-  end
-
-  def divisible_by_3(n) do
-    if rem(n, 3) == 0 do
+  def valid?(e) do
+    if (rem(e, 3) == 0) || (rem(e, 5) == 0) do
       true
-    else
-      false
     end
+  end
+
+  def main(range) do
+    Enum.reduce(range, 0, fn(e, acc) ->
+      if valid?(e) do
+        IO.puts(e)
+      end
+    end)
   end
 end
-
-# group_by
 
 defmodule Test do
   def assert(func, value) do
@@ -45,29 +23,15 @@ defmodule Test do
   end
 end
 
-Test.assert(Problem_001.divisible_by_3(3), true)
-Test.assert(Problem_001.collect(0..10), 23)
+Test.assert(Problem_001.valid?(3), true)
+Test.assert(Problem_001.valid?(5), true)
+Test.assert(Problem_001.valid?(9), true)
+Problem_001.main(1..9)
 
-#Problem_001.collect(0..10)
+#f = fn(x) -> ((rem(x, 3) == 0) || (rem(x, 5) == 0)) end
+#result = Enum.filter((1..9), f)
+#result = Enum.sum(result)
+#IO.inspect "#{result}"
 
-range = (1..10)
-
-#f = fn(x, acc) -> x * acc end
-
-
-
-#f = fn(i, acc) -> if Problem_001.divisible_by_3(i), do: {:cont, acc + i}, else: {:halt, acc} end
-#f = fn(i, acc) -> if rem(i, 3) == 0, do: {:cont, acc + i}, else: {:halt, acc} end
-
-#f = fn(x, acc) -> x + acc end
-
-f = fn
-  (x, acc) when x > 0 -> x + acc
-end
-
-hi = Enum.reduce(range, 0, f)
-IO.puts hi
-
-#IO.puts Enum.reduce_while(range, 0, f)
 
 IO.puts "All tests pass"
