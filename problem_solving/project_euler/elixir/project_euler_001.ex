@@ -26,14 +26,6 @@ Test.assert(Problem_001.valid?(3), true)
 Test.assert(Problem_001.valid?(4), false)
 Test.assert(Problem_001.valid?(9), true)
 Test.assert(Problem_001.main(1..9), 23)
-
-#f = fn(x) -> ((rem(x, 3) == 0) || (rem(x, 5) == 0)) end
-#result = Enum.filter((1..9), f)
-#result = Enum.sum(result)
-#IO.inspect "#{result}"
-
-
-
-
+Test.assert(Problem_001.main(1..999), 233168)
 
 IO.puts "All tests pass"
