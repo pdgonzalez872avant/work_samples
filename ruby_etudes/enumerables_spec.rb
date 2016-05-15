@@ -80,14 +80,24 @@ describe Enumerable do
     end
   end # any?
 
-  context 'all?' do
-  end
-
-  context 'any?' do
-  end
-
   context 'chunk' do
-  end
+    context 'iterates over the items, chunking them together based on the return value of the block' do
+      it 'chunks -> aka *combines* values based conditions and returns an enumerator' do
+        even_numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
+
+        result = even_numbers.chunk { |e| e.even? && e > 5}
+
+        expected = [[false, [3, 1, 4, 1, 5, 9, 2]],
+                    [true, [6]],
+                    [false, [5, 3, 5]]]
+
+        any_true_matches =  result.any? { |e| e[0] == true }
+
+        expect(result).to be_a(Enumerator)
+        expect(any_true_matches).to be true
+      end
+    end
+  end # chunk
 
   context 'chunk_while' do
   end
