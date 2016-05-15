@@ -1,6 +1,62 @@
 require 'rspec'
 
 describe Enumerable do
+
+  let(:all_enumerables) { [ 'all?',
+                            'any?',
+                            'chunk',
+                            'chunk_while',
+                            'collect',
+                            'collect_concat',
+                            'count',
+                            'cycle',
+                            'detect',
+                            'drop',
+                            'drop_while',
+                            'each_cons',
+                            'each_entry',
+                            'each_slice',
+                            'each_with_index',
+                            'each_with_object',
+                            'entries',
+                            'find',
+                            'find_all',
+                            'find_index',
+                            'first',
+                            'flat_map',
+                            'grep',
+                            'grep_v',
+                            'group_by',
+                            'include?',
+                            'inject',
+                            'lazy',
+                            'map',
+                            'max',
+                            'max_by',
+                            'member?',
+                            'min',
+                            'min_by',
+                            'minmax',
+                            'minmax_by',
+                            'none?',
+                            'one?',
+                            'partition',
+                            'reduce',
+                            'reject',
+                            'reverse_each',
+                            'select',
+                            'slice_after',
+                            'slice_before',
+                            'slice_when',
+                            'sort',
+                            'sort_by',
+                            'take',
+                            'take_while',
+                            'to_a',
+                            'to_h',
+                            'zip'
+                          ] }
+
   context 'all?' do
     context 'takes a collection and passes each element of the collection to a block. Halts whenever condition is not met' do
       context 'numbers' do
@@ -80,6 +136,63 @@ describe Enumerable do
     end
   end # any?
 
+  context 'reduce' do
+    context 'iterates through elements and returns an accumulator (combined) based on the block supplied' do
+
+      let(:project_euler001) { 1..999 }
+
+      it 'returns a sum correctly -> Project Euler #001' do
+        valid_numbers = project_euler001.select do |e|
+          e % 3 == 0 || e % 5 == 0
+        end
+
+        result = valid_numbers.reduce(:+)
+
+        expect(result).to eq(233168)
+      end
+    end
+  end # reduce
+
+  context 'collect' do
+    context 'iterates through a collection and returns an array with the results of running the block that is provided' do
+
+      let(:even_numbers) { [2, 4, 6, 8] }
+
+      it 'returns an array' do
+        result = even_numbers.collect { |e| e }
+
+        expect(result).to be_a(Array)
+      end
+
+      it 'does math' do
+        result = even_numbers.collect { |e| e ** 5 }
+        expected = [32, 1024, 7776, 32768]
+
+        expect(result).to eq(expected)
+      end
+
+      it 'can save time with annoying operations, such as manipulating data' do
+        result = all_enumerables.collect do |e|
+          "context '#{e}' do \n end"
+        end
+
+        # result.each { |e| puts e } # This is how this could save you time
+
+        expect(result[0]).to eq("context 'all?' do \n end")
+      end
+
+      it 'can handle different types' do
+        different_types = ['one', 2, 'three', :four, 'bad one over here']
+        expected        = [false, true, false, false, false]
+
+        result = different_types.collect do |e|
+          e.is_a?(Integer)
+        end
+        expect(result).to eq(expected)
+      end
+    end
+  end # collect
+
   context 'chunk' do
     context 'iterates over the items, chunking them together based on the return value of the block' do
       it 'chunks -> aka *combines* values based conditions and returns an enumerator' do
@@ -102,8 +215,6 @@ describe Enumerable do
   context 'chunk_while' do
   end
 
-  context 'collect' do
-  end
 
   context 'collect_concat' do
   end
@@ -207,9 +318,6 @@ describe Enumerable do
   context 'partition' do
   end
 
-  context 'reduce' do
-  end
-
   context 'reject' do
   end
 
@@ -248,63 +356,4 @@ describe Enumerable do
 
   context 'zip' do
   end
-
-
-
 end # Enumerable
-
-all_enumerables = [ 'all?',
-                    'any?',
-                    'chunk',
-                    'chunk_while',
-                    'collect',
-                    'collect_concat',
-                    'count',
-                    'cycle',
-                    'detect',
-                    'drop',
-                    'drop_while',
-                    'each_cons',
-                    'each_entry',
-                    'each_slice',
-                    'each_with_index',
-                    'each_with_object',
-                    'entries',
-                    'find',
-                    'find_all',
-                    'find_index',
-                    'first',
-                    'flat_map',
-                    'grep',
-                    'grep_v',
-                    'group_by',
-                    'include?',
-                    'inject',
-                    'lazy',
-                    'map',
-                    'max',
-                    'max_by',
-                    'member?',
-                    'min',
-                    'min_by',
-                    'minmax',
-                    'minmax_by',
-                    'none?',
-                    'one?',
-                    'partition',
-                    'reduce',
-                    'reject',
-                    'reverse_each',
-                    'select',
-                    'slice_after',
-                    'slice_before',
-                    'slice_when',
-                    'sort',
-                    'sort_by',
-                    'take',
-                    'take_while',
-                    'to_a',
-                    'to_h',
-                    'zip'
-                  ]
-puts all_enumerables.length
