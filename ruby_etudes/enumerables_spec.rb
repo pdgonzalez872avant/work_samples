@@ -56,7 +56,29 @@ describe Enumerable do
   end # all?
 
   context 'any?' do
-  end
+    context 'takes a collection and passes each element of the collection to a block. Halts whenever condition is not met' do
+      it 'returns true if my condition is met - in this case, if there is a nil value in the collection' do
+      	nil_spy = [1, 2, 'three', nil]
+
+      	result = nil_spy.any? { |e| e.nil? }
+      	expect(result).to be true
+      end
+
+      it 'returns true when there is a substring match' do
+        substring_match = ['one', 2, 'three', :four, 'bad one over here']
+
+        result = substring_match.any? { |e| e.to_s.scan(/bad/) }
+        expect(result).to be true
+      end
+
+      it 'returns false when there is no match' do
+        no_match = [1, 2, 3, 4]
+
+        result = no_match.any? { |e| e < 0 }
+        expect(result).to be false
+      end
+    end
+  end # any?
 
   context 'all?' do
   end
@@ -275,3 +297,4 @@ all_enumerables = [ 'all?',
                     'to_h',
                     'zip'
                   ]
+puts all_enumerables.length
