@@ -57,6 +57,9 @@ describe Enumerable do
                             'zip'
                           ] }
 
+  context 'inject' do
+  end
+
   context 'all?' do
     context 'takes a collection and passes each element of the collection to a block. Halts whenever condition is not met' do
       context 'numbers' do
@@ -277,9 +280,6 @@ describe Enumerable do
   end
 
   context 'include?' do
-  end
-
-  context 'inject' do
   end
 
   context 'lazy' do
