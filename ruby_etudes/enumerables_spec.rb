@@ -55,7 +55,169 @@ describe Enumerable do
     end
   end # all?
 
-  context 'any?'
+  context 'any?' do
+  end
+
+  context 'all?' do
+  end
+
+  context 'any?' do
+  end
+
+  context 'chunk' do
+  end
+
+  context 'chunk_while' do
+  end
+
+  context 'collect' do
+  end
+
+  context 'collect_concat' do
+  end
+
+  context 'count' do
+  end
+
+  context 'cycle' do
+  end
+
+  context 'detect' do
+  end
+
+  context 'drop' do
+  end
+
+  context 'drop_while' do
+  end
+
+  context 'each_cons' do
+  end
+
+  context 'each_entry' do
+  end
+
+  context 'each_slice' do
+  end
+
+  context 'each_with_index' do
+  end
+
+  context 'each_with_object' do
+  end
+
+  context 'entries' do
+  end
+
+  context 'find' do
+  end
+
+  context 'find_all' do
+  end
+
+  context 'find_index' do
+  end
+
+  context 'first' do
+  end
+
+  context 'flat_map' do
+  end
+
+  context 'grep' do
+  end
+
+  context 'grep_v' do
+  end
+
+  context 'group_by' do
+  end
+
+  context 'include?' do
+  end
+
+  context 'inject' do
+  end
+
+  context 'lazy' do
+  end
+
+  context 'map' do
+  end
+
+  context 'max' do
+  end
+
+  context 'max_by' do
+  end
+
+  context 'member?' do
+  end
+
+  context 'min' do
+  end
+
+  context 'min_by' do
+  end
+
+  context 'minmax' do
+  end
+
+  context 'minmax_by' do
+  end
+
+  context 'none?' do
+  end
+
+  context 'one?' do
+  end
+
+  context 'partition' do
+  end
+
+  context 'reduce' do
+  end
+
+  context 'reject' do
+  end
+
+  context 'reverse_each' do
+  end
+
+  context 'select' do
+  end
+
+  context 'slice_after' do
+  end
+
+  context 'slice_before' do
+  end
+
+  context 'slice_when' do
+  end
+
+  context 'sort' do
+  end
+
+  context 'sort_by' do
+  end
+
+  context 'take' do
+  end
+
+  context 'take_while' do
+  end
+
+  context 'to_a' do
+  end
+
+  context 'to_h' do
+  end
+
+  context 'zip' do
+  end
+
+
 
 end # Enumerable
 
