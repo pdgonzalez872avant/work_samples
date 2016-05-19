@@ -1,6 +1,7 @@
 require 'rspec'
 
 module DailyProgrammer
+  # Source:
   # https://www.reddit.com/r/dailyprogrammer/comments/4jom3a/20160516_challenge_267_easy_all_the_places_your/
   class Easy267
     SINGLE_DIGITS = { '1'  => 'st',
