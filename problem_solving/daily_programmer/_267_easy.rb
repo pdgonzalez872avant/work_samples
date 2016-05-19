@@ -17,6 +17,9 @@ module DailyProgrammer
                }
 
     def self.ordinal(el)
+
+      return '0' if el.to_s == '0'
+
       el = el.to_s # handle integers as well as strings
 
       length = el.split('').length
@@ -48,7 +51,7 @@ module DailyProgrammer
       if element_is_special?(last_two)
         return "#{el}#{handle_special_digits(last_two)}"
       elsif second_digit_is_zero?(last_two)   # handle zero
-        return "#{el}#{handle_sigle_digit(el)}"
+        return "#{el}#{handle_sigle_digit(el[-1])}"
       else
         simple_ordinal(el)
       end
@@ -138,7 +141,17 @@ describe DailyProgrammer::Easy267 do
       expect(result).to eq '101st'
     end
 
-    it 'handles zero'
+    it 'handles zero' do
+      result = described_class.ordinal(0)
+
+      expect(result).to eq '0'
+    end
+
+    it 'handles big numbers' do
+      result = described_class.ordinal(10100014)
+
+      expect(result).to eq '10100014th'
+    end
 
 
   end
