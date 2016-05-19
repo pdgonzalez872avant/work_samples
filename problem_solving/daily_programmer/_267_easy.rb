@@ -22,11 +22,11 @@ module DailyProgrammer
       length = el.split('').length
 
       if length == 1
-        handle_sigle_digit(el)
+        "#{el}#{handle_sigle_digit(el)}"
       elsif length > 1
         handle_multiple_digits(el)
       else
-        "not implemented yet"
+        "not implemented"
       end
     end
 
@@ -35,19 +35,23 @@ module DailyProgrammer
     end
 
     def self.handle_special_digits(el)
-      "#{el}#{SPECIAL[el]}"
+      "#{SPECIAL[el]}"
     end
 
     def self.handle_sigle_digit(el)
-      SINGLE_DIGITS.include?(el) ? "#{el}#{SINGLE_DIGITS[el]}" : "#{el}th"
+      SINGLE_DIGITS.include?(el) ? "#{SINGLE_DIGITS[el]}" : "th"
     end
 
     def self.handle_multiple_digits(el)
       last_two = parse_last_two_digits(el)
 
-      return handle_special_digits(last_two) if element_is_special?(last_two)
-      return "#{el}" if first_digit_is_zero?(last_two)   # handle zero
-
+      if element_is_special?(last_two)
+        return "#{el}#{handle_special_digits(last_two)}"
+      elsif second_digit_is_zero?(last_two)   # handle zero
+        return "#{el}#{handle_sigle_digit(el)}"
+      else
+        simple_ordinal(el)
+      end
     end
 
     def self.parse_last_two_digits(el)
@@ -55,8 +59,12 @@ module DailyProgrammer
       "#{split_el[-2]}#{split_el[-1]}"
     end
 
-    def self.first_digit_is_zero?(el)
-      return true if el[0] == '0'
+    def self.second_digit_is_zero?(el)
+      el[0] == '0'
+    end
+
+    def self.simple_ordinal(el)
+      "#{el}th"
     end
 
   end
@@ -149,10 +157,17 @@ describe DailyProgrammer::Easy267 do
     end
   end
 
-  context '.first_digit_is_zero?' do
-    it 'parses zero correctly' do
+  context '.second_digit_is_zero?' do
+    it 'returns true when there is a zero' do
+      result = described_class.second_digit_is_zero?('04')
 
+      expect(result).to eq true
+    end
+
+    it 'returns false when there is not' do
+      result = described_class.second_digit_is_zero?('14')
+
+      expect(result).to eq false
     end
   end
-
 end
