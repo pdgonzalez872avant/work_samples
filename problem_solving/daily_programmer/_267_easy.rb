@@ -1,5 +1,10 @@
 require 'rspec'
 
+# This was finished on May/18/2016
+# This is my attempt of solving this problem in a functional way.
+# I do like how I don't deal with the state of the object, but passing around
+# arguments seems a little too much. Interesting problem, learned a lot.
+
 module DailyProgrammer
   # Source:
   # https://www.reddit.com/r/dailyprogrammer/comments/4jom3a/20160516_challenge_267_easy_all_the_places_your/
