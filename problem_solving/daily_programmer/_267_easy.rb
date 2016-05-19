@@ -1,23 +1,17 @@
 require 'rspec'
 
-# https://www.reddit.com/r/dailyprogrammer/comments/4jom3a/20160516_challenge_267_easy_all_the_places_your/
-
 module DailyProgrammer
+  # https://www.reddit.com/r/dailyprogrammer/comments/4jom3a/20160516_challenge_267_easy_all_the_places_your/
   class Easy267
-
     SINGLE_DIGITS = { '1'  => 'st',
                       '2'  => 'nd',
-                      '3'  => 'rd',
-                    }
+                      '3'  => 'rd' }.freeze
 
-    SPECIAL = {
-                '11' => 'th',
-                '12' => 'th',
-                '13' => 'th',
-               }
+    SPECIAL       = { '11' => 'th',
+                      '12' => 'th',
+                      '13' => 'th' }.freeze
 
     def self.ordinal(el)
-
       return '0' if el.to_s == '0'
 
       el = el.to_s # handle integers as well as strings
@@ -29,7 +23,7 @@ module DailyProgrammer
       elsif length > 1
         handle_multiple_digits(el)
       else
-        "not implemented"
+        'not implemented'
       end
     end
 
@@ -38,11 +32,11 @@ module DailyProgrammer
     end
 
     def self.handle_special_digits(el)
-      "#{SPECIAL[el]}"
+      (SPECIAL[el]).to_s
     end
 
     def self.handle_sigle_digit(el)
-      SINGLE_DIGITS.include?(el) ? "#{SINGLE_DIGITS[el]}" : "th"
+      SINGLE_DIGITS.include?(el) ? (SINGLE_DIGITS[el]).to_s : 'th'
     end
 
     def self.handle_multiple_digits(el)
@@ -50,7 +44,7 @@ module DailyProgrammer
 
       if element_is_special?(last_two)
         return "#{el}#{handle_special_digits(last_two)}"
-      elsif second_digit_is_zero?(last_two)   # handle zero
+      elsif second_digit_is_zero?(last_two)
         return "#{el}#{handle_sigle_digit(el[-1])}"
       else
         simple_ordinal(el)
@@ -69,7 +63,6 @@ module DailyProgrammer
     def self.simple_ordinal(el)
       "#{el}th"
     end
-
   end
 end
 
@@ -148,12 +141,10 @@ describe DailyProgrammer::Easy267 do
     end
 
     it 'handles big numbers' do
-      result = described_class.ordinal(10100014)
+      result = described_class.ordinal(10_100_014)
 
       expect(result).to eq '10100014th'
     end
-
-
   end
 
   context '.parse_last_two_digits' do
