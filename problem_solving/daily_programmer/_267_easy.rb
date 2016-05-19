@@ -8,6 +8,9 @@ require 'rspec'
 module DailyProgrammer
   # Source:
   # https://www.reddit.com/r/dailyprogrammer/comments/4jom3a/20160516_challenge_267_easy_all_the_places_your/
+
+  # Notes: I modified the challenge to solve the crux only: to return the ordinal version of any
+  # integer or string that is passed to the method.
   class Easy267
     SINGLE_DIGITS = { '1'  => 'st',
                       '2'  => 'nd',
