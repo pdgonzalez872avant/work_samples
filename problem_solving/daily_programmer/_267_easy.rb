@@ -13,7 +13,7 @@ module DailyProgrammer
                       '13' => 'th' }.freeze
 
     def self.ordinal(el)
-      return '0' if el.to_s == '0'
+      return '0' if element_is_zero?(el)
 
       el = el.to_s # handle integers as well as strings
 
@@ -41,7 +41,7 @@ module DailyProgrammer
         simple_ordinal(el)
       end
     end
-    
+
     def self.element_is_special?(el)
       SPECIAL.include?(el)
     end
@@ -62,6 +62,10 @@ module DailyProgrammer
 
     def self.second_digit_is_zero?(el)
       el[0] == '0'
+    end
+
+    def self.element_is_zero?(el)
+      el.to_s == '0'
     end
 
     def self.simple_ordinal(el)
