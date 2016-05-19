@@ -20,7 +20,7 @@ module DailyProgrammer
       length = el.split('').length
 
       if length == 1
-        "#{el}#{handle_sigle_digit(el)}"
+        print_digits(el: el, handler: handle_sigle_digit(el))
       elsif length > 1
         handle_multiple_digits(el)
       else
@@ -28,6 +28,20 @@ module DailyProgrammer
       end
     end
 
+    def self.handle_multiple_digits(el)
+      last_two_digits = parse_last_two_digits(el)
+      last_digit = last_two_digits[-1]
+
+
+      if element_is_special?(last_two_digits)
+        print_digits(el: el, handler: handle_special_digits(last_two_digits))
+      elsif second_digit_is_zero?(last_two_digits)
+        print_digits(el: el, handler: handle_sigle_digit(last_digit))
+      else
+        simple_ordinal(el)
+      end
+    end
+    
     def self.element_is_special?(el)
       SPECIAL.include?(el)
     end
@@ -40,17 +54,6 @@ module DailyProgrammer
       SINGLE_DIGITS.include?(el) ? (SINGLE_DIGITS[el]).to_s : 'th'
     end
 
-    def self.handle_multiple_digits(el)
-      last_two = parse_last_two_digits(el)
-
-      if element_is_special?(last_two)
-        return "#{el}#{handle_special_digits(last_two)}"
-      elsif second_digit_is_zero?(last_two)
-        return "#{el}#{handle_sigle_digit(el[-1])}"
-      else
-        simple_ordinal(el)
-      end
-    end
 
     def self.parse_last_two_digits(el)
       split_el = el.split('')
@@ -63,6 +66,10 @@ module DailyProgrammer
 
     def self.simple_ordinal(el)
       "#{el}th"
+    end
+
+    def self.print_digits(el:, handler:)
+      "#{el}#{handler}"
     end
   end
 end
@@ -173,6 +180,14 @@ describe DailyProgrammer::Easy267 do
       result = described_class.second_digit_is_zero?('14')
 
       expect(result).to eq false
+    end
+  end
+
+  context '.print_digits' do
+    it 'returns a string with the element and the handler we want' do
+      result = described_class.print_digits(el: '12', handler: 'th')
+
+      expect(result).to eq '12th'
     end
   end
 end
