@@ -1,7 +1,11 @@
-require_relative 'counting_dna_nucleotides_001'
+module Rosalind
+  class DnaToRna
+    def self.transcribe(dna_string: )
+      dna_string.gsub('T', 'U')
+    end
+  end
+end
 
 
 
-# describe Rosalind::DnaToRNA do
-#
-# end
+# a.sub(/foo/, 'BAR')
