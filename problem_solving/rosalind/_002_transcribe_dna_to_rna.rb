@@ -5,7 +5,3 @@ module Rosalind
     end
   end
 end
-
-
-
-# a.sub(/foo/, 'BAR')
