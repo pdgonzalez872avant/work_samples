@@ -1,5 +1,3 @@
-require 'rspec'
-
 module Rosalind
   class DnaNucleotides
 
