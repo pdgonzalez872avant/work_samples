@@ -1,4 +1,4 @@
-This is a repo where I write sample scripts to problem solve, create something or test an idea.
+These problems are from [Free Code Camp](https://www.freecodecamp.com/).
 
 Please contact me with any tips/techniques you think I would benefit from.
 

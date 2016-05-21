@@ -1,4 +1,6 @@
-This is a repo where I write sample scripts to problem solve, create something or test an idea.
+This folder deals with [Rosalind](http://rosalind.info/) exercises.
+
+This is a great way to practice TDD.
 
 Please contact me with any tips/techniques you think I would benefit from.
 
